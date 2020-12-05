@@ -1,0 +1,37 @@
+    <?php
+                    $mobileno = strlen ($_POST ["phone"]);  
+                    $length = strlen ($mobileno);  
+                      
+                    if ( $length < 10 && $length > 10) {  
+                        $ErrMsg = "Mobile must have 10 digits.";  
+                                echo $ErrMsg;  
+                    } else {  
+                        echo "Your Mobile number is: " .$mobileno;  
+                    }  
+                    if (emptyempty($_POST["mobileno"])) {  
+                      $mobilenoErr = "Mobile no is required";  
+              } else {  
+                      $mobileno = input_data($_POST["mobileno"]);  
+                      // check if mobile no is well-formed  
+                      if (!preg_match ("/^[0-9]*$/", $mobileno) ) {  
+                      $mobilenoErr = "Only numeric value is allowed.";  
+                      }  
+                  //check mobile no length should not be less and greator than 10  
+                  if (strlen ($mobileno) != 10) {  
+                      $mobilenoErr = "Mobile no must contain 10 digits.";  
+                      }  
+              }  
+                    //        if (emptyempty($_POST["phone"])) {  
+                    //         $mobilenoErr = "Mobile no is required";  
+                    // } else {  
+                    //         $mobileno = input_data($_POST["phone"]);  
+                    //         // check if mobile no is well-formed  
+                    //         if (!preg_match ("/^[0-9]*$/", $mobileno) ) {  
+                    //         $mobilenoErr = "Only numeric value is allowed.";  
+                    //         }  
+                    //     //check mobile no length should not be less and greator than 10  
+                    //     if (strlen ($mobileno) != 10) {  
+                    //         $mobilenoErr = "Mobile no must contain 10 digits.";  
+                    //         }  
+                    // }  
+                    ?>

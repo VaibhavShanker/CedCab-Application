@@ -1,4 +1,8 @@
 <?php
+session_start();
+
+                
+
         global $cab,$Luggage;
         $PICKUP = $_REQUEST['PICKUP'];
         $DROP = $_REQUEST['DROP'];
@@ -37,25 +41,39 @@
                             {
                             $totalfear = abs($distance*13.50);
                             $cabfear = abs(50+$totalfear);
-                            echo "Total Fear : " .$cabfear; 
+                            echo "Total Fear ₹ : " .$cabfear;
+                            echo "</br>"; 
+                            echo "Total Distance : " .$distance;
+                            
+                        //    echo '<button onclick="myFunction()">Try it</button>';
                             }
                             else if ($distance<=50){
                                 $newdis = abs($distance-10);
                                 $totalfear = abs($newdis*12.00);             
                                 $cabfear = abs(135+50+$totalfear);
-                                echo "Total Fear : " .$cabfear;  
+                                echo "Total Fear ₹ : " .$cabfear; 
+                                echo "</br>"; 
+                                echo "Total Distance : " .$newdis;
+                                // echo '<button onclick="myFunction()">Try it</button>';
                             }
                             else if ($distance<=100){
                                 $newdis = abs($distance-60);
                                 $totalfear = abs($newdis*10.20);                
                                 $cabfear = abs(135+50+600+$totalfear);
-                                echo "Total Fear : " .$cabfear;   
+                                echo "Total Fear ₹ : " .$cabfear; 
+                                echo "</br>"; 
+                                echo "Total Distance : " .$newdis;  
+                                // echo '<button onclick="myFunction()">Try it</button>';
                             }
                             else if ($distance>=100){
                                 $newdis = abs($distance-160);
                                 $totalfear = abs($newdis*8.50);                
                                 $cabfear = abs(135+50+1020+600+$totalfear);
-                                echo "Total Fear : " .$cabfear; 
+                                
+                                echo "Total Fear ₹ : " .$cabfear;
+                                echo "</br>"; 
+                                echo "Total Distance : " .$newdis; 
+                                // echo '<button onclick="myFunction()">Try it</button>';
                             }
                      }
                 }
@@ -69,25 +87,33 @@
                             {
                             $totalfear = abs($distance*14.50);
                             $cabfear = abs(150+$totalfear+$Luggageprice);
-                            echo "Total Fear : " .$cabfear; 
+                            echo "Total Fear ₹ : " .$cabfear;
+                            echo "</br>"; 
+                            echo "Total Distance : " .$distance; 
                             }
                             else if ($distance<=50){
                                 $newdis = abs($distance-10);                             
                                 $totalfear = abs($newdis*13.00);                                                            
                                 $cabfear = abs(145+150+$totalfear+$Luggageprice);
-                                echo "Total Fear : " .$cabfear; 
+                                echo "Total Fear ₹ : " .$cabfear;
+                                echo "</br>"; 
+                                echo "Total Distance : " .$newdis; 
                             }
                             else if ($distance<=100){
                                 $newdis = abs($distance-60);
                                 $totalfear = abs($newdis*11.20);                   
                                 $cabfear = abs(145+150+650+$totalfear+$Luggageprice);
-                                echo "Total Fear : " .$cabfear; 
+                                echo "Total Fear ₹ : " .$cabfear; 
+                                echo "</br>"; 
+                                echo "Total Distance : " .$newdis;
                             }
                             else if ($distance>=100){
                                 $newdis = abs($distance-160);
                                 $totalfear = abs($newdis*9.50);              
                                 $cabfear = abs(145+150+1120+650+$totalfear+$Luggageprice);
-                                echo "Total Fear : " .$cabfear;  
+                                echo "Total Fear ₹ : " .$cabfear; 
+                                echo "</br>"; 
+                                echo "Total Distance : " .$newdis; 
                             }
                         }
                 }
@@ -101,25 +127,33 @@
                             {
                             $totalfear = abs($distance*15.50);
                             $cabfear = abs(200+$totalfear);
-                            echo "Total Fear : " .$cabfear; 
+                            echo "Total Fear  : " .$cabfear; 
+                            echo "</br>"; 
+                            echo "Total Distance : " .$distance;
                             }
                             else if ($distance<=50){
                                 $newdis = abs($distance-10);
                                 $totalfear = abs($newdis*14.00);                
                                 $cabfear = abs(155+200+$totalfear+$Luggageprice);
-                                echo "Total Fear : " .$cabfear;  
+                                echo "Total Fear : " .$cabfear;
+                                echo "</br>"; 
+                                echo "Total Distance : " .$newdis;  
                             }
                             else if ($distance<=100){
                                 $newdis = abs($distance-60);
                                 $totalfear = abs($newdis*12.20);                      
                                 $cabfear = abs(155+200+700+$totalfear+$Luggageprice);
-                                echo "Total Fear : " .$cabfear;  
+                                echo "Total Fear : " .$cabfear; 
+                                echo "</br>"; 
+                                echo "Total Distance : " .$newdis; 
                             }
                             else if ($distance>=100){
                                 $newdis = abs($distance-160);
                                 $totalfear = abs($newdis*10.50);                              
                                 $cabfear = abs(155+200+1220+700+$totalfear+$Luggageprice);
-                                echo "Total Fear : " .$cabfear;  
+                                echo "Total Fear : " .$cabfear; 
+                                echo "</br>"; 
+                                echo "Total Distance : " .$newdis; 
                             }
                         }
                 }
@@ -133,27 +167,46 @@
                             $totalfear = abs($distance*16.50);
                             $cabfear = abs(250+100+$totalfear+$Luggageprice);
                             echo "Total Fear : " .$cabfear; 
+                            echo "</br>"; 
+                            echo "Total Distance : " .$distance;
                             }
                             else if ($distance<=50){
                                 $newdis = abs($distance-10);
                                 $totalfear = abs($newdis*15.00);                
                                 $cabfear = abs(165+100+250+$totalfear+$Luggageprice);
-                                echo "Total Fear : " .$cabfear;   
+                                echo "Total Fear : " .$cabfear;
+                                 echo "</br>"; 
+                                echo "Total Distance : " .$newdis;   
                             }    
                             else if ($distance<=100){
                                 $newdis = abs($distance-60);
                                 $totalfear = abs($newdis*13.20);              
                                 $cabfear = abs(165+250+100+750+$totalfear+$Luggageprice);
                                 echo "Total Fear : " .$cabfear; 
+                                echo "</br>"; 
+                                echo "Total Distance : " .$newdis;
                             }
                             else if ($distance>=100){
                                 $newdis = abs($distance-160);
                                 $totalfear = abs($newdis*11.50);               
                                 $cabfear = abs(165+350+1320+750+$totalfear+$Luggageprice);
-                                echo "Total Fear : " .$cabfear;                                
+                                echo "Total Fear : " .$cabfear; 
+                                echo "</br>"; 
+
+                                echo "Total Distance : " .$newdis;                                
                             }
                         }
                 }  
             }
+            $_SESSION['totalFare'] = $cabfear;
+            $_SESSION['distance'] = $newdis;
+
+
+            $_SESSION['p']=$PICKUP;
+            $_SESSION['d']=$DROP;
+            $_SESSION['ct']=$cab;
+            $_SESSION['l']=$Luggage;
+            $_SESSION['td']=$newdis;
+            $_SESSION['f']=$cabfear;
            
 ?>

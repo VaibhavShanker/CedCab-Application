@@ -46,12 +46,12 @@
                   echo "<td>" . $row['ride_id'] . "</td>";
                   echo "<td>" . $row['cab_type'] . "</td>";
                   echo "<td>" . $row['ride_date'] . "</td>";
-                  echo "<td>" . $row['from'] . "</td>";
-                  echo "<td>" . $row['to'] . "</td>"; 
+                  echo "<td>" . $row['from_p'] . "</td>";
+                  echo "<td>" . $row['to_p'] . "</td>"; 
                   echo "<td>" . $row['total_distance'] . "</td>"; 
                   echo "<td>" . $row['luggage'] . "</td>"; 
                   echo "<td>" . $row['total_fare'] . "</td>";
-                  echo "<td>" . $row['status'] . "</td>"; 
+                  echo "<td><a>Pending</a></td>"; 
                   echo "<td>" . $row['customer_user_id'] . "</td>"; 
                   echo "<td><a  class='btn btn-primary' href=approved_ride.php?id=".$row["ride_id"].">Approved_Ride</a> </td>";                   
                   echo "</tr>";

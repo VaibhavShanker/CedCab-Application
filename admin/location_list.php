@@ -1,3 +1,13 @@
+<?php 
+session_start();
+if(isset($_SESSION['userdata']['name']))
+    {
+    
+    // if($_SESSION['userdata']['name']!="admin")
+    // {
+
+require "header_adminp.php";
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,6 +31,7 @@
   </head>
 <body>
       <?php
+          
           require 'Dbconnect.php';
           require 'css.php';
               mysqli_select_db($con,"ajax_demo");
@@ -33,17 +44,29 @@
                   <th>Distance. </th>
                   <th>Available. </th>
                   <th>Delete. </th>
+                  <th>Update. </th>
                   </tr>";
               while($row = mysqli_fetch_array($result)) {
                     echo "<tr>";
                     echo "<td>" . $row['id'] . "</td>";
                     echo "<td>" . $row['name'] . "</td>";
                     echo "<td>" . $row['distance'] . "</td>";
-                    echo "<td>" . $row['is_available'] . "</td>"; 
-                    echo "<td> <a  class='btn btn-primary' href=delete.php?dis_id=".$row["id"].">Delete</a> </td>"; 
+
+                      // if ($row['is_available']==1) {
+                      //   echo "<td>" '<a> Available </a>' "</td>";
+                      //           } else if($row['is_available']==2){
+                        
+                      //   echo "<td>" '<a> Pending </a>' "</td>";
+                          
+
+                    echo "<td> <a> Available </a> </td>"; 
+                    echo "<td> <a  class='btn btn-primary' href=delete.php?dis_id=".$row["id"].">Delete </a> </td>"; 
+                    echo "<td> <a  class='btn btn-primary' href=update_list.php?dis_id=".$row["id"].">Update </a> </td>";                    
                     echo "</tr>";
               }
       ?>
 </body>
 </html>
-
+<?php
+    }
+    ?>

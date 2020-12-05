@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html>
-        <title>Admin Dashboard</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <style>html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}</style>
+<?php 
+session_start();
+if(isset($_SESSION['userdata']['name']))
+    {
+    
+    // if($_SESSION['userdata']['name']!="admin")
+    // {
+
+
+require "header_adminp.php";
+?>
           <script>
           function loadDoc1() {
             var xhttp = new XMLHttpRequest();
@@ -31,11 +33,16 @@
             xhttp.send();
           }
           </script>
+          <script type="text/javascript">
+                function preventBack() { window.history.forward(); }
+                setTimeout("preventBack()", 0);
+                window.onunload = function () { null }
+          </script>
           <body class="w3-light-grey">
           <!-- Top container -->
           <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
             <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-            <a class="w3-bar-item w3-right" href="../ced_taxi_index.php">Log Out</a>
+            <a class="w3-bar-item w3-right" href="../logout.php"><i class="fa fa-sign-out">Log Out</i></a>
           </div>
           <!-- Sidebar/menu -->
           <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -72,10 +79,10 @@
                       <div class="w3-container w3-blue w3-padding-16">
                           <div class="w3-left"><i class="fa fa-plus-square-o w3-xxxlarge"></i></div>
                             <div class="w3-right">
-                              <h3>52</h3>
+                              <h3>New</h3>
                             </div>
                           <div class="w3-clear"></div>
-                        <a href="#" onclick="loadDoc1()">
+                          <a href="add_location.php" >
                         <h4>Add New Location</h4>
                         </a>  
                       </div>
@@ -84,10 +91,17 @@
                     <div class="w3-container w3-teal w3-padding-16">
                         <div class="w3-left"><i class="fa fa-map-marker w3-xxxlarge"></i></div>
                           <div class="w3-right">
-                            <h3>23</h3>
+                          <?php                                  
+                                  require 'css.php';
+                                    mysqli_select_db($con,"ajax_demo");
+                                    $sql="SELECT * FROM tbl_location";
+                                    $result = mysqli_query($con,$sql);
+                                    $count=mysqli_num_rows($result);
+                                    echo "<h3>$count</h3>";                         
+                          ?>
                           </div>
                         <div class="w3-clear"></div>
-                      <a href="#" onclick="loadDoc2()">
+                        <a href="#" onclick="loadDoc2()">
                       <h4>Location List</h4>
                       </a>                  
                     </div>
@@ -118,35 +132,9 @@
               overlayBg.style.display = "none";
             }
             </script>
-            <!-- Footer -->
-            <footer class="w3-container w3-padding-16 w3-light-grey" style="margin-top: 600px">
-              <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 mt-4 text-center">
-                  <h1 style="font-size: 35px;color:rgb(221, 236, 81)">Ced Taxi</h1>
-                  <p><i style="color:rgb(221, 236, 81) ;"></i>crafted By <strong>Vaibhav Shanker</strong></p>
-              </div>
-            </footer>
-            <!-- End page content -->
-          </div>
-            <script>
-            // Get the Sidebar
-            var mySidebar = document.getElementById("mySidebar");
-            // Get the DIV with overlay effect
-            var overlayBg = document.getElementById("myOverlay");
-            // Toggle between showing and hiding the sidebar, and add overlay effect
-            function w3_open() {
-              if (mySidebar.style.display === 'block') {
-                mySidebar.style.display = 'none';
-                overlayBg.style.display = "none";
-              } else {
-                mySidebar.style.display = 'block';
-                overlayBg.style.display = "block";
-              }
-            }
-            // Close the sidebar with the close button
-            function w3_close() {
-              mySidebar.style.display = "none";
-              overlayBg.style.display = "none";
-            }
-            </script>
-          </body>
-</html>
+                     <?php 
+            require "footer_adminp.php";
+
+                    }
+
+            ?>

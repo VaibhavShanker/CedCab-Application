@@ -1,5 +1,7 @@
     <?php
       $user_id=$_REQUEST['id'];
+      require 'Dbconnect.php';
+      require 'css.php';
       $con = mysqli_connect("localhost", "root", "", "Schema");
         if (!$con) {
           die('Could not connect: ' . mysqli_error($con));

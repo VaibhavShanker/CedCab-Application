@@ -43,7 +43,7 @@
                 echo "<td>" . $row['name'] . "</td>";
                 echo "<td>" . $row['dateofsignup'] . "</td>"; 
                 echo "<td>" . $row['mobile'] . "</td>"; 
-                echo "<td>" . $row['isblock'] . "</td>";
+                echo "<td><a>Blocked</a></td>";
                 echo "<td><a  class='btn btn-primary' href=Unblock_user.php?id=".$row["user_id"].">Un-Block</a> </td>";                     
                 echo "</tr>";
             }

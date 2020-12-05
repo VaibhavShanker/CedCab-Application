@@ -1,9 +1,7 @@
 <?php
       $user_id=$_REQUEST['id'];
-      $con = mysqli_connect("localhost", "root", "", "Schema");
-        if (!$con) {
-          die('Could not connect: ' . mysqli_error($con));
-        }
+      require 'Dbconnect.php';
+      require 'css.php';
       $sql = "UPDATE tbl_user SET `isblock`='0' WHERE `user_id`='$user_id' ";
         if ($con->query($sql) === TRUE) {
           echo "<script>alert('Record updated successfull');

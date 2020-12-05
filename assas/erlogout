@@ -1,0 +1,36 @@
+<!-- <?php
+
+// require 'user.php';
+if (isset($_SESSION['userdata'])) {//p
+    //p
+    session_unset();
+    session_destroy();//p
+
+} else {
+    
+    echo "<script>alert('Member logout, please login again to continue');
+    window.location='index.php';
+    // window.history.back();
+    </script>";
+}
+?>   -->
+
+<!-- <?php
+session_start();
+unset($_SESSION["userid"]);
+unset($_SESSION["name"]);
+header("Location:index.php");
+exit();
+?> -->
+
+
+<?php
+session_start();
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+
+$_SESSION = array();
+session_destroy();
+session_unset();  
+    header("location:index.php");
+
+?>

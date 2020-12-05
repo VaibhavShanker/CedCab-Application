@@ -1,3 +1,12 @@
+<?php 
+session_start();
+if(isset($_SESSION['userdata']['name']))
+    {
+    
+    // if($_SESSION['userdata']['name']!="admin")
+    // {
+
+?>
 <!DOCTYPE html>
 <html>
       <head>
@@ -45,12 +54,12 @@
                 echo "<td>" . $row['ride_id'] . "</td>";
                 echo "<td>" . $row['cab_type'] . "</td>";
                 echo "<td>" . $row['ride_date'] . "</td>";
-                echo "<td>" . $row['from'] . "</td>";
-                echo "<td>" . $row['to'] . "</td>"; 
+                echo "<td>" . $row['from_p'] . "</td>";
+                echo "<td>" . $row['to_p'] . "</td>";  
                 echo "<td>" . $row['total_distance'] . "</td>"; 
                 echo "<td>" . $row['luggage'] . "</td>"; 
-                echo "<td>" . $row['total_fare'] . "</td>";
-                echo "<td>" . $row['status'] . "</td>"; 
+                echo "<td>" . $row['total_fare'] . "</td>";                 
+                echo "<td><a>Completed</a></td>";
                 echo "<td>" . $row['customer_user_id'] . "</td>"; 
                 echo "<td><a  class='btn btn-primary' href=canc_ride.php?id=".$row["ride_id"].">Canceled_Ride</a> </td>";                   
                 echo "</tr>";
@@ -60,3 +69,8 @@
       ?>
   </body>
 </html>
+
+<?php
+    }
+
+?>

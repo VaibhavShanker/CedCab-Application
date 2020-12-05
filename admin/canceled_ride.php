@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+<?php 
+session_start();
+if(isset($_SESSION['userdata']['name']))
+    {
+    
+?>
     <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +32,12 @@
             mysqli_select_db($con,"ajax_demo");
             $sql="SELECT * FROM tbl_ride WHERE status=0";
             $result = mysqli_query($con,$sql);
+
+            $countcan=mysqli_num_rows($result);
+            $_SESSION['countcan'] = $countcan;
+            // echo $countcan;
+
+
                 echo "<table class='table table-striped table-dark'>
                 <tr>
                 <th>Ride_id. </th>
@@ -45,12 +57,12 @@
                   echo "<td>" . $row['ride_id'] . "</td>";
                   echo "<td>" . $row['cab_type'] . "</td>";
                   echo "<td>" . $row['ride_date'] . "</td>";
-                  echo "<td>" . $row['from'] . "</td>";
-                  echo "<td>" . $row['to'] . "</td>"; 
+                  echo "<td>" . $row['from_p'] . "</td>";
+                  echo "<td>" . $row['to_p'] . "</td>"; 
                   echo "<td>" . $row['total_distance'] . "</td>"; 
                   echo "<td>" . $row['luggage'] . "</td>"; 
-                  echo "<td>" . $row['total_fare'] . "</td>";
-                  echo "<td>" . $row['status'] . "</td>"; 
+                  echo "<td>" . $row['total_fare'] . "</td>";                   
+                  echo "<td><a>Canceled</a></td>";
                   echo "<td>" . $row['customer_user_id'] . "</td>"; 
                   echo "<td><a  class='btn btn-primary' href=pend_ride.php?id=".$row["ride_id"].">Approved_Ride</a> </td>";                                  
                   echo "</tr>";
@@ -60,3 +72,6 @@
         ?>
     </body>
 </html>
+<?php
+    }
+?>

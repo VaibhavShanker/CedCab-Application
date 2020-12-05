@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-<title>Admin Dashboard</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-</style>
+<?php 
+session_start();
+if(isset($_SESSION['userdata']['name']))
+    {
+    
+    // if($_SESSION['userdata']['name']!="admin")
+    // {
+
+require "header_adminp.php";
+?>
 <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -86,7 +85,7 @@ function loadDoc4() {
               <!-- Top container -->
               <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
                 <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-                <a class="w3-bar-item w3-right" href="../ced_taxi_index.php">Log Out</a>
+                <a class="w3-bar-item w3-right" href="../logout.php">Log Out</a>
               </div>
 
               <!-- Sidebar/menu -->
@@ -201,8 +200,8 @@ function loadDoc4() {
           echo "<td>" . $row['ride_id'] . "</td>";
           echo "<td>" . $row['cab_type'] . "</td>";
           echo "<td>" . $row['ride_date'] . "</td>";
-          echo "<td>" . $row['from'] . "</td>";
-          echo "<td>" . $row['to'] . "</td>"; 
+          echo "<td>" . $row['from_p'] . "</td>";
+          echo "<td>" . $row['to_p'] . "</td>"; 
           echo "<td>" . $row['total_distance'] . "</td>"; 
           echo "<td>" . $row['luggage'] . "</td>"; 
           echo "<td>" . $row['total_fare'] . "</td>";
@@ -216,35 +215,9 @@ function loadDoc4() {
           mysqli_close($con);
     ?>
             </div>
-                  <!-- Footer -->
-                  <footer class="w3-container w3-padding-16 w3-light-grey" style="margin-top: 600px">
-                          <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 mt-4 text-center">
-                          <h1 style="font-size: 35px;color:rgb(221, 236, 81)">Ced Taxi</h1>
-                          <p><i style="color:rgb(221, 236, 81) ;"></i>crafted By <strong>Vaibhav Shanker</strong></p>
-                          </div>
-                  </footer>
-        <!-- End page content -->
-      </div>
-            <script>
-                // Get the Sidebar
-                var mySidebar = document.getElementById("mySidebar");
-                // Get the DIV with overlay effect
-                var overlayBg = document.getElementById("myOverlay");
-                // Toggle between showing and hiding the sidebar, and add overlay effect
-                function w3_open() {
-                  if (mySidebar.style.display === 'block') {
-                    mySidebar.style.display = 'none';
-                    overlayBg.style.display = "none";
-                  } else {
-                    mySidebar.style.display = 'block';
-                    overlayBg.style.display = "block";
-                  }
-                }
-                // Close the sidebar with the close button
-                function w3_close() {
-                  mySidebar.style.display = "none";
-                  overlayBg.style.display = "none";
-                }
-            </script>
-      </body>
-</html>
+            <?php 
+              require "footer_adminp.php";
+                    }
+                 
+              
+              ?>

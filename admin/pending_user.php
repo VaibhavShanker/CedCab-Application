@@ -43,8 +43,8 @@
                     echo "<td>" . $row['user_name'] . "</td>";
                     echo "<td>" . $row['name'] . "</td>";
                     echo "<td>" . $row['dateofsignup'] . "</td>"; 
-                    echo "<td>" . $row['mobile'] . "</td>"; 
-                    echo "<td>" . $row['isblock'] . "</td>"; 
+                    echo "<td>" . $row['mobile'] . "</td>";                      
+                    echo "<td><a>Pending</a></td>";
                     echo "<td> <a  class='btn btn-primary' href=approved.php?id=".$row["user_id"].">Approved</a> </td>"; 
                     echo "</tr>";
               }

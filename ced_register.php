@@ -23,6 +23,14 @@ if (isset($_POST['submit'])) {
     $show=$user->register($username,$password,$name,$confirmpassword,$phone,$date,$connection->conn);
     echo $show;
 }
+
+
+
+$mobilenoErr =  "";  
+ $phone =  "";  
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -45,7 +53,7 @@ if (isset($_POST['submit'])) {
         <img class="navbar-brand img-fluid img-responsive" src="img/rsz_logo1.png">                
         <ul class="navbar-nav ml-auto mr-5">
                  <li class="nav-item active">
-                  <a class="nav-link" href="ced_taxi_index.php">HOME<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="index.php">HOME<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                   <a class="nav-link" href="#">ABOUT US <span class="sr-only">(current)</span></a>
@@ -90,7 +98,7 @@ if (isset($_POST['submit'])) {
               </h4>
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
-            <form action="ced_register.php" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-green w3-margin" style="border-radius: 10px;">
+            <form action="ced_register.php"  method="post" class="w3-container w3-card-4 w3-light-grey w3-text-green w3-margin" style="border-radius: 10px;">
               <h2 class="w3-center">Register Now!</h2>                
                 <div class="w3-row w3-section ">
                 <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
@@ -107,21 +115,23 @@ if (isset($_POST['submit'])) {
                 <div class="w3-row w3-section">
                 <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-key"></i></div>
                     <div class="w3-rest">
-                    <input class="w3-input w3-border" name="password" type="password" placeholder="Password">
+                    <input class="w3-input w3-border" name="password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Password">
                     </div>
                 </div>
 
                 <div class="w3-row w3-section">
                 <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-key"></i></div>
                     <div class="w3-rest">
-                    <input class="w3-input w3-border" name="confirmpassword" type="password" placeholder="Confirm-Password :">
+                    <input class="w3-input w3-border" name="confirmpassword" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Confirm-Password :">
                     </div>
                 </div>
 
                 <div class="w3-row w3-section">
                 <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
                     <div class="w3-rest">
-                    <input class="w3-input w3-border" name="phone" type="number" placeholder="Phone">
+                    <input class="w3-input w3-border" name="phone" type="tel" pattern="[0-9].{2,10}" title="Only Numbers and must be 10 digit" placeholder="Phone">
+                    <!-- <span class="error">* <?php echo $mobilenoErr; ?> </span>   -->
+                
                     </div>
                 </div>
                 <input type="submit" name="submit" class="w3-button w3-block w3-section w3-green w3-ripple w3-padding mycss" value="Submit" id="submit">
@@ -131,58 +141,10 @@ if (isset($_POST['submit'])) {
           </div>
         </div>
       </div>
-
-
-
-      
-
-    </div>
-
-    <br>
-    <br>
-    
-
-    <div class="container-fluid">
-
-        <div class="row mt-3">
-
-          <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 mt-4 text-center">
-
-            <h1 style="font-size: 35px;color:rgb(221, 236, 81)">Ced Taxi</h1>
-            <p><i style="color:rgb(221, 236, 81) ;"></i>crafted By <strong>Vaibhav Shanker</strong></p>
-
-
-          </div>
-
-          <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 text-center">
-
-            <center>
-              <i class="fab fa-facebook" style="font-size: 30px;"></i>
-              <i class="fab fa-twitter-square" style="padding: 30px; font-size: 30px;"></i>
-              <i class="fab fa-instagram-square" style="padding: 20px; font-size: 30px;"></i>
-  
-            </center>
-
-           
-
-          </div>
-
-          <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4 mt-4 text-center">
-
-            <ul class="list-unstyled">
-              <li class="float-left px-1"><a href="#" style="color: black;">ABOUT US</a></li>
-              <li class="float-left px-1"><a href="#" style="color: black;">REVIEW</a></li>
-              <li class="float-left px-1"><a href="#" style="color: black;">SIGN UP</a></li>
-          </ul>
-
-          </div>
-
-        </div>
-
-    </div>
-   
+    </div><br><br>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     
-  </body>
-</html>
+<?php
+require 'footer.php';
+?>
